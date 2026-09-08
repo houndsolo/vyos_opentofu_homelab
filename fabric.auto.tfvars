@@ -37,21 +37,17 @@ fabric = {
     vni_filter                = true
   }
 
-  evpn_rr = {
-    evpn-rr-1 = { hypervisor_node = "titania", id = 100, is_vm = true }
-    evpn-rr-2 = { hypervisor_node = "fortuna", id = 200, is_vm = true }
-  }
   nodes = {
     spines = {
       #mikrotik 326
-      rtr1 = {
+      m326_1 = {
         id        = 1
         uplink_if = "eth1"
         hosturl   = "http://10.20.0.5"
         as        = 810
       }
       #mikrotik 326
-      rtr2 = {
+      m326_2 = {
         id        = 2
         uplink_if = "eth2"
         hosturl   = "http://10.20.0.6"
@@ -61,8 +57,7 @@ fabric = {
 
     leaves = {
       fichina = { hypervisor_node = "fichina", id = 11, role = "pve", is_vm = true, started = true 
-
-      underlay_bridges   = ["vmbr4000"]
+      underlay_bridges   = ["vmbr4011", "vmbr4012", "vmbr4010"]
       }
       #macbeth = { hypervisor_node = "macbeth", id = 12, role = "pve", is_vm = true, started = true }
       #titania = { hypervisor_node = "titania", id = 13, role = "pve", is_vm = true, started = true }
