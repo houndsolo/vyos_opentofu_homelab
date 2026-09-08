@@ -1,6 +1,6 @@
 locals {
   bgp_commands = [
-    #"set protocols bgp system-as ${var.fabric_asn}",
+    "set protocols bgp system-as ${var.fabric.defaults.bgp_system_as}",
     #"set protocols bgp parameters router-id ${var.router_id}",
     "set protocols bgp address-family l2vpn-evpn advertise-all-vni",
     "set protocols bgp address-family ipv6-unicast network fd69:255:240::11/128",
