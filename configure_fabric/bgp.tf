@@ -3,7 +3,7 @@ locals {
     "set protocols bgp system-as ${var.fabric.defaults.bgp_system_as}",
     #"set protocols bgp parameters router-id ${var.router_id}",
     "set protocols bgp address-family l2vpn-evpn advertise-all-vni",
-    "set protocols bgp address-family ipv6-unicast network fd69:255:240::11/128",
+    "set protocols bgp address-family ipv6-unicast network ${cidrsubnet(var.fabric.defaults.ipv6_fabric_loopback_prefix,64,var.node.id)}",
     "set protocols bgp address-family l2vpn-evpn flooding head-end-replication",
     "set protocols bgp address-family l2vpn-evpn vni 9002 rd '10.255.240.11:9002'",
     "set protocols bgp address-family l2vpn-evpn vni 9006 rd '10.255.240.11:9006'",
