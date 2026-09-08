@@ -1,0 +1,19 @@
+provider_installation {
+  dev_overrides {
+    "registry.terraform.io/houndsolo/vyoscmd" = "/home/mechanic/bin/vyoscmd-dev"
+  }
+
+  filesystem_mirror {
+    path = "/home/mechanic/network_automation/tofu/vyos_tofu_test/.tofu-provider-mirror"
+
+    include = [
+      "local/mechanic/proxmox",
+    ]
+  }
+
+  direct {
+    exclude = [
+      "local/mechanic/proxmox",
+    ]
+  }
+}
