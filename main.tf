@@ -1,8 +1,8 @@
 module "pve_leaves_vms" {
-  for_each  = { for name, node in var.fabric.nodes.leaves : name => node }
+  for_each  = var.fabric.nodes.leaves
   source = "./configure_fabric"
   providers = { vyoscmd = vyoscmd.leaves[each.key] }
-  node      = var.fabric.nodes.leaves[each.key]
+  node = local.fabric.nodes.leaves[each.key]
   fabric      = var.fabric
   vnis        = var.vnis
   external_l3 = var.external_l3
@@ -21,22 +21,13 @@ module "create_fabric_vms" {
 }
 
 locals {
-  vnis = {
-    l3 = { for vni in var.vnis : tostring(vni.vni) => vni }
-  }
-
   fabric = merge(var.fabric, {
     nodes = merge(var.fabric.nodes, {
       leaves = {
         for name, node in var.fabric.nodes.leaves : name => merge(node, {
           fabric_macs = {
-            for interface_number in range(1, 4) :
-            "eth${interface_number}" => join(":", regexall("..", format(
-              "02%04d%04d%02d",
-              var.fabric.defaults.underlay_local_as_base + node.id,
-              node.id,
-              interface_number,
-            )))
+            for i in range(1, 4) :
+            "eth${i}" => format("02:70:00:%02d:00:%02d", node.id, i)
           }
         })
       }
