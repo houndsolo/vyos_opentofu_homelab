@@ -1,6 +1,7 @@
 locals {
   interface_commands= concat(
     local.interface_base_commands,
+    local.dummy_interface_commands,
     local.interface_mac_commands,
     local.interface_router_advertisement_commands,
     local.interface_external_commands,
@@ -27,5 +28,9 @@ locals {
   interface_external_commands = [
     "set interfaces ethernet eth3 description 'link to vms'",
     "set interfaces ethernet eth3 mtu '${var.fabric.vxlan.mtu}'",
+  ]
+  dummy_interface_commands = [
+    "set interfaces dummy dum240 address '${cidrsubnet(var.fabric.defaults.ipv6_fabric_loopback_prefix,64,parseint(tostring(var.node.id),16))}'",
+    "set interfaces dummy dum240 mtu '9189'",
   ]
 }
