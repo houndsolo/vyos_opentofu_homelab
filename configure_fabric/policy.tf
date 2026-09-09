@@ -34,7 +34,7 @@ locals {
     [
     for vrf in local.role_vrfs : [
        "set policy route-map RM-EVPN-SPINE-EXPORT rule ${vrf.vni} action 'deny'",
-       "set policy route-map RM-EVPN-SPINE-EXPORT rule ${vrf.vni} match evpn route type 'prefix'",
+       "set policy route-map RM-EVPN-SPINE-EXPORT rule ${vrf.vni} match evpn route-type 'prefix'",
        "set policy route-map RM-EVPN-SPINE-EXPORT rule ${vrf.vni} match ip address prefix-list 'PL-${upper(vrf.vrf)}-L2VNI-SUBNETS'",
       ]
     ],
