@@ -33,13 +33,13 @@ locals {
     flatten([
       for vni in local.l2vnis : [
         "set interfaces bridge br0 member interface eth3 allowed-vlan '${vni.vlan_id}'",
-        "set interfaces pseudo-ethernet peth9011 address '${vni.anycast_gw_ip}/${vni.anycast_gw_cidr}'",
-        "set interfaces pseudo-ethernet peth9011 anycast-gateway",
-        "set interfaces pseudo-ethernet peth9011 ip disable-arp-filter",
-        "set interfaces pseudo-ethernet peth9011 ip enable-arp-accept",
-        "set interfaces pseudo-ethernet peth9011 mac '${vni.anycast_mac}'",
-        "set interfaces pseudo-ethernet peth9011 source-interface 'br0.${vni.vlan_id}'",
-        "set interfaces pseudo-ethernet peth9011 vrf '${vni.vrf}'",
+        "set interfaces pseudo-ethernet peth${vni.vni} address '${vni.anycast_gw_ip}/${vni.anycast_gw_cidr}'",
+        "set interfaces pseudo-ethernet peth${vni.vni} anycast-gateway",
+        "set interfaces pseudo-ethernet peth${vni.vni} ip disable-arp-filter",
+        "set interfaces pseudo-ethernet peth${vni.vni} ip enable-arp-accept",
+        "set interfaces pseudo-ethernet peth${vni.vni} mac '${vni.anycast_mac}'",
+        "set interfaces pseudo-ethernet peth${vni.vni} source-interface 'br0.${vni.vlan_id}'",
+        "set interfaces pseudo-ethernet peth${vni.vni} vrf '${vni.vrf}'",
       ]
     ])
   ]
