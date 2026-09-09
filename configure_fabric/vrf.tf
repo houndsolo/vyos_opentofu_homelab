@@ -23,6 +23,7 @@ locals {
   vrf_base_commands = flatten([
     for vrf in local.role_vrfs : [
       "set vrf name ${vrf.vrf} table ${vrf.vrf_table}",
+      "set vrf name ${vrf.vrf} vni ${vrf.vni}",
     ]
   ])
   vrf_evpn_route_leak_commands = flatten([
