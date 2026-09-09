@@ -1,5 +1,6 @@
 resource "vyoscmd_commands" "test" {
   name = "provider-test"
+  save = false
   commands = flatten([
     local.bgp_commands,
     local.vxlan_commands,
