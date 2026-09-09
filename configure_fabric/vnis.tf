@@ -32,4 +32,8 @@ locals {
     for l2vni in local.role_l2vnis_list :
     l2vni.vni => l2vni
   }
+  all_vnis = merge(
+    local.l2vnis,
+    local.role_vrfs
+  )
 }
