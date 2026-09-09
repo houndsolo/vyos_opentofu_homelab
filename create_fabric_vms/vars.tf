@@ -72,21 +72,6 @@ variable "gf_api_token" {
   sensitive = true
 }
 
-variable "dhcp" {
-  type = any
-}
-
-variable "dhcp_attachments" {
-  type = map(object({
-    vni            = number
-    interface      = string
-    bridge         = string
-    vlan_id        = number
-    subnet         = string
-    default_router = string
-    scope          = any
-  }))
-}
 
 variable "proxmox_vtep_vm" {
   description = "Proxmox VM settings for VyOS VTEP instances."

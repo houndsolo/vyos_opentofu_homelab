@@ -19,7 +19,7 @@ locals {
   "set interfaces vxlan vxlan0 parameters external",
   "set interfaces vxlan vxlan0 parameters nolearning",
   "set interfaces vxlan vxlan0 parameters vni-filter",
-  "set interfaces vxlan vxlan0 source-address '${cidrsubnet(var.fabric.defaults.ipv6_fabric_loopback_prefix,64,parseint(tostring(var.node.id),16))}'",
+  "set interfaces vxlan vxlan0 source-address '${cidrhost(var.fabric.defaults.ipv6_fabric_loopback_prefix,parseint(tostring(var.node.id),16))}'",
   ]
   vni_commands = flatten([
     for vni in local.all_vnis : [
