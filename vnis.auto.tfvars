@@ -6,25 +6,25 @@ vnis = [
     vrf         = "lylat_external"
     vrf_table   = 6666
     anycast_mac = "bc:24:11:00:66:66"
-    #ipv4_rt_imports = "700:6200 700:6900"
-    #ipv4_rt_exports = "700:6600"
+    #ipv4_rt_imports = "800:6200 800:6900"
+    #ipv4_rt_exports = "800:6600"
     #border_leaf_ipv4_rt_imports = "420:1337 420:666"
     #border_leaf_ipv4_vrf_imports = [
     #]
     ext_l3                           = true
-    border_leaf_ipv4_rt_imports      = "700:6900 700:6600 700:6200"
-    border_leaf_ipv4_rt_exports      = "700:6666"
+    border_leaf_ipv4_rt_imports      = "800:6900 800:6600 800:6200"
+    border_leaf_ipv4_rt_exports      = "800:6666"
     border_leaf_ipv4_vpn_import_bool = true
     export_vpn_ipv4                  = true
     evpn_rt_imports = [
-      "700:6666",
-      "700:6900",
-      "700:6600",
-      "700:6700",
-      "700:6200",
+      "800:6666",
+      "800:6900",
+      "800:6600",
+      "800:6800",
+      "800:6200",
     ]
     evpn_rt_exports = [
-      "700:6666",
+      "800:6666",
     ]
   },
   {
@@ -33,24 +33,24 @@ vnis = [
     roles           = ["pve"]
     vrf             = "lylat_service"
     vrf_table       = 1000
-    ipv4_rt_imports = "700:6200 700:6900"
-    ipv4_rt_exports = "700:6600"
+    ipv4_rt_imports = "800:6200 800:6900"
+    ipv4_rt_exports = "800:6600"
     #border_leaf_ipv4_rt_imports = "420:1337 420:666"
     #border_leaf_ipv4_vrf_imports = [
     #]
-    #border_leaf_ipv4_rt_imports      = "700:6666 700:6900 700:6200"
-    #border_leaf_ipv4_rt_exports      = "700:6600"
+    #border_leaf_ipv4_rt_imports      = "800:6666 800:6900 800:6200"
+    #border_leaf_ipv4_rt_exports      = "800:6600"
     border_leaf_ipv4_vpn_import_bool = true
     export_vpn_ipv4                  = true
     #anycast_mac          = "bc:24:11:00:66:00"
     evpn_rt_imports = [
-      "700:6600",
-      "700:6200",
-      "700:6900",
-      "700:6666",
+      "800:6600",
+      "800:6200",
+      "800:6900",
+      "800:6666",
     ]
     evpn_rt_exports = [
-      "700:6600",
+      "800:6600",
     ]
     #redistribute_ipv4 = {
     #  connected = {}
@@ -100,27 +100,27 @@ vnis = [
     vrf       = "lylat_lan"
     vrf_table = 1337
     #anycast_mac          = "bc:24:11:00:69:00"
-    ipv4_rt_imports = "700:6600 700:6200 700:6700"
-    ipv4_rt_exports = "700:6900"
+    ipv4_rt_imports = "800:6600 800:6200 800:6800"
+    ipv4_rt_exports = "800:6900"
     #border_leaf_ipv4_vrf_imports = [
     #  "lylat_service",
     #]
-    #border_leaf_ipv4_rt_imports      = "700:6666 700:6600 700:6200"
-    #border_leaf_ipv4_rt_exports      = "700:6900"
+    #border_leaf_ipv4_rt_imports      = "800:6666 800:6600 800:6200"
+    #border_leaf_ipv4_rt_exports      = "800:6900"
     border_leaf_ipv4_vpn_import_bool = true
     export_vpn_ipv4                  = true
     #redistribute_ipv4 = {
     #  connected = {}
     #}
     evpn_rt_imports = [
-      "700:6900",
-      "700:6600",
-      "700:6200",
-      "700:6700",
-      "700:6666",
+      "800:6900",
+      "800:6600",
+      "800:6200",
+      "800:6800",
+      "800:6666",
     ]
     evpn_rt_exports = [
-      "700:6900",
+      "800:6900",
     ]
 
     l2 = {
@@ -176,25 +176,25 @@ vnis = [
     vni             = 6200
     roles           = ["pve"]
     vrf             = "lylat_infra"
-    vrf_table       = 700
-    ipv4_rt_imports = "700:6600 700:6900"
-    ipv4_rt_exports = "700:6200"
+    vrf_table       = 800
+    ipv4_rt_imports = "800:6600 800:6900"
+    ipv4_rt_exports = "800:6200"
     #border_leaf_ipv4_vrf_imports = [
     #  "lylat_service",
     #]
-    #border_leaf_ipv4_rt_imports      = "700:6666 700:6600 700:6900"
-    #border_leaf_ipv4_rt_exports      = "700:6200"
+    #border_leaf_ipv4_rt_imports      = "800:6666 800:6600 800:6900"
+    #border_leaf_ipv4_rt_exports      = "800:6200"
     #anycast_mac          = "bc:24:11:00:62:00"
     border_leaf_ipv4_vpn_import_bool = true
     export_vpn_ipv4                  = true
     evpn_rt_imports = [
-      "700:6200",
-      "700:6900",
-      "700:6600",
-      "700:6666",
+      "800:6200",
+      "800:6900",
+      "800:6600",
+      "800:6666",
     ]
     evpn_rt_exports = [
-      "700:6200",
+      "800:6200",
     ]
     #redistribute_ipv4 = {
     #  connected = {}
@@ -223,22 +223,22 @@ vnis = [
 
   {
     vlan_id         = 67
-    vni             = 6700
+    vni             = 6800
     roles           = ["external_l2"]
     vrf             = "lylat_ai"
-    vrf_table       = 6700
-    ipv4_rt_imports = "700:6600 700:6900"
-    ipv4_rt_exports = "700:6700"
+    vrf_table       = 6800
+    ipv4_rt_imports = "800:6600 800:6900"
+    ipv4_rt_exports = "800:6800"
     border_leaf_ipv4_vpn_import_bool = true
     export_vpn_ipv4                  = true
     evpn_rt_imports = [
-      "700:6700",
-      "700:6900",
-      "700:6600",
-      "700:6666",
+      "800:6800",
+      "800:6900",
+      "800:6600",
+      "800:6666",
     ]
     evpn_rt_exports = [
-      "700:6700",
+      "800:6800",
     ]
     #redistribute_ipv4 = {
     #  connected = {}
