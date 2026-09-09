@@ -25,7 +25,7 @@ locals {
         for name, node in var.fabric.nodes.leaves : name => merge(node, {
           fabric_macs = {
             for i in range(1, 4) :
-            "eth${i}" => format("02:70:00:%02d:00:%02d", node.id, i)
+            "eth${i}" => format("bc:24:11:%02d:00:%02d", node.id, i)
           }
         })
       }
