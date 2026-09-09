@@ -6,5 +6,6 @@ resource "vyoscmd_commands" "test" {
     local.vrf_commands,
     local.interface_commands,
     local.policy_commands,
+    local.system_commands,
   ])
 }
